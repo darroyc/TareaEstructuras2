@@ -20,16 +20,18 @@ public class Menu {
         while (option != 0) {
             print("Con que desea trabajar?");
             option = printMainMenu();
-            structure = Structure.values()[option - 1];
-            if(option==4){
-                while (option!=3){
-                    print("\nQue desea hacer?");
-                    option = treeStructuresMenu();
-                }
-            }else {
-                while (option!=5){
-                    print("\nQue desea hacer?");
-                    option = linearStructuresMenu();
+            if(option!=0){
+                structure = Structure.values()[option - 1];
+                if(option==4){
+                    while (option!=3){
+                        print("\nQue desea hacer?");
+                        option = treeStructuresMenu();
+                    }
+                }else {
+                    while (option!=5){
+                        print("\nQue desea hacer?");
+                        option = linearStructuresMenu();
+                    }
                 }
             }
         }

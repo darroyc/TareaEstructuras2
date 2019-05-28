@@ -16,7 +16,6 @@ public abstract class BaseStructure extends Node {
     public abstract Integer pop();
 
     public String getContent(){
-        boolean isEmpty = isEmpty();
         if(!isEmpty()){
             Node tempNode = getHead();
             String content = "";

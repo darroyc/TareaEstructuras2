@@ -3,18 +3,11 @@ package com.cenfotec.BusinessLogic;
 import com.cenfotec.Entities.*;
 import com.cenfotec.Enums.Structure;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 public class Gestor {
-
-
     private Stack stack;
     private Queue queue;
     private OrderedList orderedList;
     private Tree tree;
-    private static int value;
-    private BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
     public Gestor(){
         stack = new Stack();
