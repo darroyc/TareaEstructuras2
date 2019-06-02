@@ -34,15 +34,15 @@ public class Binary{
     }
 
     public String inOrder(){
-        return inOrder(root);
+        return deleteLastComma(inOrder(root));
     }
 
     public String preOrder(){
-        return preOrder(root);
+        return deleteLastComma(preOrder(root));
     }
 
     public String postOrder(){
-        return postOrder(root);
+        return deleteLastComma(postOrder(root));
     }
 
     private String inOrder(BinaryNode v_node){
@@ -52,7 +52,7 @@ public class Binary{
             content += "[" +v_node.getValue()+"],";
             content += inOrder(v_node.getRightNode());
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String preOrder(BinaryNode v_node){
@@ -62,7 +62,7 @@ public class Binary{
             content += preOrder(v_node.getLeftNode());
             content += preOrder(v_node.getRightNode());
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String postOrder(BinaryNode v_node){
@@ -71,9 +71,8 @@ public class Binary{
             content += postOrder(v_node.getLeftNode());
             content += postOrder(v_node.getRightNode());
             content += "[" +v_node.getValue()+"],";
-            return content;
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String deleteLastComma(String content){

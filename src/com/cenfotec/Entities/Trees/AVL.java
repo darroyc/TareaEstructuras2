@@ -141,15 +141,15 @@ public class AVL {
     }
 
     public String inOrder(){
-        return inOrder(root);
+        return deleteLastComma(inOrder(root));
     }
 
     public String preOrder(){
-        return preOrder(root);
+        return deleteLastComma(preOrder(root));
     }
 
     public String postOrder(){
-        return postOrder(root);
+        return deleteLastComma(postOrder(root));
     }
 
     private String inOrder(AVLNode v_node){
@@ -159,7 +159,7 @@ public class AVL {
             content += "[" +v_node.getValue()+"],";
             content += inOrder(v_node.getRight());
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String preOrder(AVLNode v_node){
@@ -169,7 +169,7 @@ public class AVL {
             content += preOrder(v_node.getLeft());
             content += preOrder(v_node.getRight());
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String postOrder(AVLNode v_node){
@@ -178,9 +178,8 @@ public class AVL {
             content += postOrder(v_node.getLeft());
             content += postOrder(v_node.getRight());
             content += "[" +v_node.getValue()+"],";
-            return content;
         }
-        return deleteLastComma(content);
+        return content;
     }
 
     private String deleteLastComma(String content){
