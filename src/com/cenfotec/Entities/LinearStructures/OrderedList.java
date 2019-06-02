@@ -1,6 +1,6 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.LinearStructures;
 
-public class OrderedList extends BaseStructure {
+public class OrderedList extends Base {
     private Node head;
 
     public OrderedList() {

@@ -1,7 +1,7 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.LinearStructures;
 
 
-public class Stack extends BaseStructure {
+public class Stack extends Base {
 
     public Stack() {
         setHead(null);

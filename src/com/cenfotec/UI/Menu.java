@@ -2,7 +2,7 @@ package com.cenfotec.UI;
 
 
 import com.cenfotec.Enums.Structure;
-import com.cenfotec.BusinessLogic.Gestor;
+import com.cenfotec.BusinessLogic.Manager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,19 +10,19 @@ import java.io.InputStreamReader;
 import static com.cenfotec.Enums.Structure.*;
 
 public class Menu {
-    private Gestor gestor;
+    private Manager manager;
     private BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     private Structure structure;
 
     public void start() {
         int option = 1;
-        gestor = new Gestor();
+        manager = new Manager();
         while (option != 0) {
             print("Con que desea trabajar?");
             option = printMainMenu();
             if(option!=0){
                 structure = Structure.values()[option - 1];
-                if(option==4){
+                if(option>=4){
                     while (option!=3){
                         print("\nQue desea hacer?");
                         option = treeStructuresMenu();
@@ -41,9 +41,10 @@ public class Menu {
         print("1. Lista");
         print("2. Fila");
         print("3. Pila");
-        print("4. Árbol");
+        print("4. Árbol Binario");
+        print("5. Árbol AVL");
         print("0. Salir");
-        return getOption(4, 0);
+        return getOption(5, 0);
     }
 
     private int printPassMenu() {
@@ -66,16 +67,17 @@ public class Menu {
             case 1:
                 print("\nDigite el elemento entero a agregar:");
                 value = readInt();
-                gestor.push(value, structure);
+                manager.push(value, structure);
                 break;
             case 2:
                 Integer deletedValue = null;
                 if (structure == LIST) {
                     print("\nDigite el elemento que desea eliminar");
                     int valueToDelete = readInt();
-                    deletedValue = gestor.deleteFromList(valueToDelete);
+                    deletedValue = manager.deleteFromList(valueToDelete);
+                }else{
+                    deletedValue = manager.pop(structure);
                 }
-                deletedValue = gestor.pop(structure);
                 if (deletedValue != null) {
                     print("\nEl número " + deletedValue + " fue eliminado de la estructura.");
                 } else {
@@ -89,14 +91,14 @@ public class Menu {
                     Structure newStructure = Structure.values()[option - 1];
                     if(newStructure != structure){
                         print("De " + translateStructureName(structure) + " a " + translateStructureName(newStructure));
-                        structure = gestor.convert(newStructure, structure);
+                        structure = manager.convert(newStructure, structure);
                     }else {
                         print("Se seleccionó el mismo tipo de estructura.");
                     }
                 }
                 break;
             case 4:
-                print(gestor.getStructureContent(structure));
+                print(manager.getStructureContent(structure));
                 break;
             case 5:
                     break;
@@ -113,10 +115,10 @@ public class Menu {
             case 1:
                 print("\nDigite el elemento entero a agregar:");
                 int value = readInt();
-                gestor.push(value, structure);
+                manager.push(value, structure);
                 break;
             case 2:
-                print(gestor.getStructureContent(structure));
+                print(manager.getStructureContent(structure));
                 break;
             case 5:
                 break;
@@ -158,8 +160,10 @@ public class Menu {
                 return "fila";
             case LIST:
                 return "lista ordenada";
-            case TREE:
-                return "árbol";
+            case BINARY:
+                return "árbol binario";
+            case AVL:
+                return "árbol AVL";
             default:
                 return "Estructura invalida";
         }

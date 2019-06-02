@@ -4,5 +4,6 @@ public enum Structure {
     LIST,
     QUEUE,
     STACK,
-    TREE
+    BINARY,
+    AVL
 }

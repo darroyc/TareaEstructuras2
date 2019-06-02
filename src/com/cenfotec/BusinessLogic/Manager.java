@@ -1,19 +1,26 @@
 package com.cenfotec.BusinessLogic;
 
-import com.cenfotec.Entities.*;
+import com.cenfotec.Entities.LinearStructures.Base;
+import com.cenfotec.Entities.LinearStructures.OrderedList;
+import com.cenfotec.Entities.LinearStructures.Queue;
+import com.cenfotec.Entities.LinearStructures.Stack;
+import com.cenfotec.Entities.Trees.AVL;
+import com.cenfotec.Entities.Trees.Binary;
 import com.cenfotec.Enums.Structure;
 
-public class Gestor {
+public class Manager {
     private Stack stack;
     private Queue queue;
     private OrderedList orderedList;
-    private Tree tree;
+    private Binary binaryTree;
+    private AVL avlTree;
 
-    public Gestor(){
+    public Manager(){
         stack = new Stack();
         queue = new Queue();
         orderedList = new OrderedList();
-        tree = new Tree();
+        binaryTree = new Binary();
+        avlTree = new AVL();
     }
 
     public void push(int value, Structure structure){
@@ -27,8 +34,11 @@ public class Gestor {
             case LIST:
                 orderedList.push(value);
                 break;
-            case TREE:
-                tree.push(value);
+            case BINARY:
+                binaryTree.insert(value);
+                break;
+            case AVL:
+                avlTree.insert(value);
                 break;
         }
     }
@@ -89,7 +99,7 @@ public class Gestor {
         return newStructure;
     }
 
-    private void pass(BaseStructure oldStructure, BaseStructure newStructure){
+    private void pass(Base oldStructure, Base newStructure){
         Integer value = oldStructure.pop();
         while (value!=null){
             newStructure.push(value);
@@ -98,6 +108,7 @@ public class Gestor {
     }
 
     public String getStructureContent(Structure structure){
+        String content;
         switch (structure) {
             case STACK:
                 return stack.getContent();
@@ -105,13 +116,21 @@ public class Gestor {
                 return queue.getContent();
             case LIST:
                 return orderedList.getContent();
-            case TREE:
-                String content = "\nInOrden:\n" +
-                        tree.inOrden(tree.root) +
+            case BINARY:
+                content = "\nInOrden:\n" +
+                        binaryTree.inOrder() +
                         "\nPostOrden:\n" +
-                        tree.postOrden(tree.root) +
+                        binaryTree.postOrder() +
                         "\nPreOrden:\n" +
-                        tree.preOrden(tree.root);
+                        binaryTree.preOrder();
+                return content;
+            case AVL:
+                content = "\nInOrden:\n" +
+                        avlTree.inOrder() +
+                        "\nPostOrden:\n" +
+                        avlTree.postOrder() +
+                        "\nPreOrden:\n" +
+                        avlTree.preOrder();
                 return content;
             default:
                 return "Estructura invalida";

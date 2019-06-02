@@ -1,20 +1,20 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.Trees.Nodes;
 
-public class TreeNode {
-    protected int value;
-    protected TreeNode leftNode;
-    protected TreeNode rightNode;
+public class BinaryNode {
+    private int value;
+    private BinaryNode leftNode;
+    private BinaryNode rightNode;
 
-    public TreeNode() {
+    public BinaryNode() {
     }
 
-    public TreeNode(int value) {
+    public BinaryNode(int value) {
         this.value = value;
         this.leftNode = null;
         this.rightNode = null;
     }
 
-    public TreeNode(int value, TreeNode leftNode, TreeNode rightNode) {
+    public BinaryNode(int value, BinaryNode leftNode, BinaryNode rightNode) {
         this.value = value;
         this.leftNode = leftNode;
         this.rightNode = rightNode;
@@ -28,19 +28,19 @@ public class TreeNode {
         this.value = value;
     }
 
-    public TreeNode getLeftNode() {
+    public BinaryNode getLeftNode() {
         return leftNode;
     }
 
-    public void setLeftNode(TreeNode leftNode) {
+    public void setLeftNode(BinaryNode leftNode) {
         this.leftNode = leftNode;
     }
 
-    public TreeNode getRightNode() {
+    public BinaryNode getRightNode() {
         return rightNode;
     }
 
-    public void setRightNode(TreeNode rightNode) {
+    public void setRightNode(BinaryNode rightNode) {
         this.rightNode = rightNode;
     }
 }

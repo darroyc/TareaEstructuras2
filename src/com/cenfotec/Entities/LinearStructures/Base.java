@@ -1,6 +1,6 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.LinearStructures;
 
-public abstract class BaseStructure extends Node {
+public abstract class Base {
     private Node head;
 
     public Node getHead(){

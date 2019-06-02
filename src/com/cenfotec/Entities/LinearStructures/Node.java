@@ -1,4 +1,4 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.LinearStructures;
 
 public class Node {
     private int value;

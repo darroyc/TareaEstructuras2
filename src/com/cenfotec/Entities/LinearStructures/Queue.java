@@ -1,7 +1,7 @@
-package com.cenfotec.Entities;
+package com.cenfotec.Entities.LinearStructures;
 
 
-public class Queue extends BaseStructure {
+public class Queue extends Base {
     private Node last;
 
     public Queue() {
