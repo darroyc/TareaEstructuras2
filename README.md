@@ -2,7 +2,7 @@
 
 Integrantes
 
-Daniel Arroyo
-Silvia Bolaños
-Izahir Cascante
-Luis Contreras
+- Daniel Arroyo
+- Silvia Bolaños
+- Izahir Cascante
+- Luis Contreras
