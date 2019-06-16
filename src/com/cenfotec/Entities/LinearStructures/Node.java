@@ -1,52 +1,52 @@
 package com.cenfotec.Entities.LinearStructures;
 
-public class Node {
-    private int value;
-    private Node nextNode;
-    private Node previousNode;
+public class Node<T extends Comparable<T>> {
+    private T data;
+    private Node<T> nextNode;
+    private Node<T> previousNode;
 
     public Node() {
-        this.value = 0;
+        this.data = null;
         this.nextNode = null;
         this.previousNode = null;
     }
 
-    public Node(int value) {
-        this.value = value;
+    public Node(T data) {
+        this.data = data;
         this.nextNode = null;
         this.previousNode = null;
     }
 
-    public Node(int value, Node nextNode) {
-        this.value = value;
+    public Node(T data, Node<T> nextNode) {
+        this.data = data;
         this.nextNode = nextNode;
     }
 
-    public Node(int value, Node nextNode, Node previousNode) {
-        this.value = value;
+    public Node(T data, Node<T> nextNode, Node<T> previousNode) {
+        this.data = data;
         this.nextNode = nextNode;
         this.previousNode = previousNode;
     }
 
-    public int getValue() {
-        return value;
+    public T getData() {
+        return data;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setData(T data) {
+        this.data = data;
     }
 
-    protected Node getNextNode() {
+    protected Node<T> getNextNode() {
         return nextNode;
     }
 
-    protected void setNextNode(Node nextNode) {
+    protected void setNextNode(Node<T> nextNode) {
         this.nextNode = nextNode;
     }
 
-    protected Node getPreviousNode() { return previousNode; }
+    protected Node<T> getPreviousNode() { return previousNode; }
 
-    protected void setPreviousNode(Node previousNode) {
+    protected void setPreviousNode(Node<T> previousNode) {
         this.previousNode = previousNode;
     }
 }

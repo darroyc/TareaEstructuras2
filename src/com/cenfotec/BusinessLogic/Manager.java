@@ -23,28 +23,28 @@ public class Manager {
         avlTree = new AVL();
     }
 
-    public void push(int value, Structure structure){
+    public <T> void push(T value, Structure structure){
         switch (structure) {
             case STACK:
-                stack.push(value);
+                stack.push((Comparable) value);
                 break;
             case QUEUE:
-                queue.push(value);
+                queue.push((Comparable) value);
                 break;
             case LIST:
-                orderedList.push(value);
+                orderedList.push((Comparable) value);
                 break;
             case BINARY:
-                binaryTree.insert(value);
+                binaryTree.insert((Integer) value);
                 break;
             case AVL:
-                avlTree.insert(value);
+                avlTree.insert((Integer) value);
                 break;
         }
     }
 
-    public Integer pop(Structure structure){
-        Integer value = 0;
+    public Object pop(Structure structure){
+        Object value = 0;
         switch (structure) {
             case STACK:
                 value = stack.pop();
@@ -59,9 +59,7 @@ public class Manager {
         return value;
     }
 
-    public Integer deleteFromList(int value){
-        return orderedList.pop(value);
-    }
+    public <T> Object deleteFromList(T value){ return orderedList.pop((Comparable) value); }
 
     public Structure convert(Structure newStructure, Structure currentStructure){
         switch (newStructure) {
@@ -100,7 +98,7 @@ public class Manager {
     }
 
     private void pass(Base oldStructure, Base newStructure){
-        Integer value = oldStructure.pop();
+        var value = oldStructure.pop();
         while (value!=null){
             newStructure.push(value);
             value = oldStructure.pop();

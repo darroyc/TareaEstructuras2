@@ -1,19 +1,19 @@
 package com.cenfotec.Entities.LinearStructures;
 
-public abstract class Base {
-    private Node head;
+public abstract class Base<T extends Comparable<T>> {
+    protected Node<T> head;
 
-    public Node getHead(){
+    public Node<T> getHead(){
         return head;
     }
 
-    public void setHead(Node head){
+    public void setHead(Node<T> head){
         this.head = head;
     }
 
-    public abstract void push(int value);
+    public abstract void push(T data);
 
-    public abstract Integer pop();
+    public abstract T pop();
 
     public String getContent(){
         if(!isEmpty()){
@@ -21,7 +21,7 @@ public abstract class Base {
             String content = "";
             StringBuilder stringBuilder = new StringBuilder();
             while (tempNode!=null){
-                stringBuilder.append(tempNode.getValue()).append(", ");
+                stringBuilder.append(tempNode.getData()).append(", ");
                 tempNode = tempNode.getNextNode();
             }
             content = stringBuilder.toString();

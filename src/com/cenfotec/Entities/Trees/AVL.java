@@ -61,6 +61,7 @@ public class AVL {
         avlNode.setHeight(max( height(avlNode.getLeft()), height( avlNode.getRight() ) ) + 1);
         return avlNode;
     }
+
     /* Rotate binary tree node with left child */
     private AVLNode rotateWithLeftChild(AVLNode node2)
     {
@@ -82,6 +83,7 @@ public class AVL {
         node2.setHeight(max( height( node2.getRight() ), node1.getHeight() ) + 1);
         return node2;
     }
+
     /**
      * Double rotate binary tree node: first left child
      * with its right child; then node node3 with new left child */
@@ -90,6 +92,7 @@ public class AVL {
         node3.setLeft(rotateWithRightChild( node3.getLeft() ));
         return rotateWithLeftChild( node3 );
     }
+
     /**
      * Double rotate binary tree node: first right child
      * with its left child; then node node1 with new right child */
@@ -103,6 +106,7 @@ public class AVL {
     {
         return countNodes(root);
     }
+
     private int countNodes(AVLNode avlNode)
     {
         if (avlNode == null)
@@ -120,6 +124,7 @@ public class AVL {
     {
         return search(root, val);
     }
+
     private boolean search(AVLNode avlNode, int val)
     {
         boolean found = false;

@@ -1,18 +1,18 @@
 package com.cenfotec.Entities.LinearStructures;
 
 
-public class Queue extends Base {
-    private Node last;
+public class Queue<T extends Comparable<T>> extends Base<T> {
+    private Node<T> last;
 
     public Queue() {
         setHead(null);
         last =null;
     }
 
-    public void push(int value)
+    public void push(T value)
     {
-        Node newNode;
-        newNode = new Node(value);
+        Node<T> newNode;
+        newNode = new Node<>(value);
 
         if (isEmpty()) {
             setHead(newNode);
@@ -23,11 +23,11 @@ public class Queue extends Base {
         }
     }
 
-    public Integer pop()
+    public T pop()
     {
         if (!isEmpty())
         {
-            int value = getHead().getValue();
+            var value = getHead().getData();
             if (getHead() == last){
                 setHead(null);
                 last = null;

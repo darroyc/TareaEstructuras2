@@ -5,6 +5,7 @@ import com.cenfotec.Enums.Structure;
 import com.cenfotec.BusinessLogic.Manager;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static com.cenfotec.Enums.Structure.*;
@@ -56,7 +57,7 @@ public class Menu {
     }
 
     private int linearStructuresMenu() {
-        int value;
+        Object value;
         print("1. Agregar");
         print("2. Eliminar");
         print("3. Pasar");
@@ -66,14 +67,14 @@ public class Menu {
         switch (option) {
             case 1:
                 print("\nDigite el elemento entero a agregar:");
-                value = readInt();
+                value = read();
                 manager.push(value, structure);
                 break;
             case 2:
-                Integer deletedValue = null;
+                Object deletedValue;
                 if (structure == LIST) {
                     print("\nDigite el elemento que desea eliminar");
-                    int valueToDelete = readInt();
+                    var valueToDelete = read();
                     deletedValue = manager.deleteFromList(valueToDelete);
                 }else{
                     deletedValue = manager.pop(structure);
@@ -130,8 +131,17 @@ public class Menu {
     private int readInt() {
         try {
             return Integer.parseInt(in.readLine());
-        } catch (Exception e) {
+        } catch (IOException e) {
             print("Digite un numero para agregar");
+            return readInt();
+        }
+    }
+
+    private Object read() {
+        try {
+            return in.readLine();
+        } catch (IOException e) {
+            print("Lo que ingreso no puede ser reconocido. Intente de nuevo");
             return readInt();
         }
     }

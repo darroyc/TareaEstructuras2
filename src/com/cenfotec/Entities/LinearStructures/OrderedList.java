@@ -1,34 +1,25 @@
 package com.cenfotec.Entities.LinearStructures;
 
-public class OrderedList extends Base {
-    private Node head;
+public class OrderedList<T extends Comparable<T>> extends Base<T> {
 
     public OrderedList() {
     }
 
-    public Node getHead() {
-        return head;
-    }
-
-    public void setHead(Node head) {
-        this.head = head;
-    }
-
-    public void push(int value){
-        Node node = new Node(value);
-        if(isEmpty()){
+    public void push(T data) {
+        var node = new Node<T>(data);
+        if (isEmpty()) {
             setHead(node);
-        }else{
-            Node tempNode = getHead();
-            if(tempNode.getValue()<node.getValue()){
+        } else {
+            Node<T> tempNode = getHead();
+            if (tempNode.getData().compareTo(node.getData()) < 0) {
                 node.setNextNode(tempNode);
                 setHead(node);
                 tempNode.setPreviousNode(node);
-            }else{
-                while(tempNode.getNextNode() != null && tempNode.getNextNode().getValue()>node.getValue()){
+            } else {
+                while (tempNode.getNextNode() != null && tempNode.getNextNode().getData().compareTo(node.getData()) > 0) {
                     tempNode = tempNode.getNextNode();
                 }
-                if(tempNode.getNextNode() != null){
+                if (tempNode.getNextNode() != null) {
                     node.setNextNode(tempNode.getNextNode());
                     tempNode.getNextNode().setPreviousNode(node);
                 }
@@ -38,31 +29,31 @@ public class OrderedList extends Base {
         }
     }
 
-    public Integer pop(){
+    public T pop(){
         if (!isEmpty())
         {
-            Node currentHead = getHead();
+            Node<T> currentHead = getHead();
             if (currentHead.getNextNode()==null){
                 setHead(null);
             } else {
                 setHead(currentHead.getNextNode());
             }
-            return currentHead.getValue();
+            return currentHead.getData();
         } else {
             return null;
         }
     }
 
-    public Integer pop(int value){
+    public T pop(T value){
         if(!isEmpty()){
-            Node tempNode = getHead();
-            while(tempNode.getValue()!=value){
+            Node<T> tempNode = getHead();
+            while(tempNode.getData().compareTo(value)!=0){
                 tempNode = tempNode.getNextNode();
             }
             if(getSize()==1){
                 setHead(null);
             }else{
-                if(getHead().getValue()==value){
+                if(getHead().getData().compareTo(value) == 0){
                     setHead(getHead().getNextNode());
                     getHead().setPreviousNode(null);
                 }else{
@@ -72,7 +63,7 @@ public class OrderedList extends Base {
                     }
                 }
             }
-            return tempNode.getValue();
+            return tempNode.getData();
         }
         return null;
     }

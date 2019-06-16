@@ -1,16 +1,16 @@
 package com.cenfotec.Entities.LinearStructures;
 
 
-public class Stack extends Base {
+public class Stack <T extends Comparable<T>> extends Base<T> {
 
     public Stack() {
         setHead(null);
     }
 
-    public void push(int value)
+    public void push(T value)
     {
-        Node newNode;
-        newNode = new Node(value);
+        Node<T> newNode;
+        newNode = new Node<T>(value);
 
         if (isEmpty()) {
             setHead(newNode);
@@ -20,17 +20,17 @@ public class Stack extends Base {
         }
     }
 
-    public Integer pop()
+    public T pop()
     {
         if (!isEmpty())
         {
-            Node currentHead = getHead();
+            Node<T> currentHead = getHead();
             if (currentHead.getNextNode()==null){
                 setHead(null);
             } else {
                 setHead(currentHead.getNextNode());
             }
-            return currentHead.getValue();
+            return currentHead.getData();
         } else {
             return null;
         }
