@@ -5,5 +5,7 @@ public enum Structure {
     QUEUE,
     STACK,
     BINARY,
-    AVL
+    AVL,
+    HASH_ABIERTO,
+    HASH_CERRADO
 }

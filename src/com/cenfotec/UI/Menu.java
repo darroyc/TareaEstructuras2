@@ -19,18 +19,31 @@ public class Menu {
         int option = 1;
         manager = new Manager();
         while (option != 0) {
-            print("Con que desea trabajar?");
+            print("¿Con qué desea trabajar?");
             option = printMainMenu();
             if(option!=0){
                 structure = Structure.values()[option - 1];
-                if(option>=4){
-                    while (option!=3){
-                        print("\nQue desea hacer?");
-                        option = treeStructuresMenu();
+
+                if(option >=4){
+
+                    if(option >= 6){
+
+                        while (option!=4){
+                            print("\n¿Qué desea hacer?");
+                            option = hashingMenu();
+                        }
+
+                    }else{
+                        while (option!=3){
+                            print("\n¿Qué desea hacer?");
+                            option = treeStructuresMenu();
+                        }
                     }
-                }else {
+
+                }
+                else {
                     while (option!=5){
-                        print("\nQue desea hacer?");
+                        print("\n¿Qué desea hacer?");
                         option = linearStructuresMenu();
                     }
                 }
@@ -44,8 +57,10 @@ public class Menu {
         print("3. Pila");
         print("4. Árbol Binario");
         print("5. Árbol AVL");
+        print("6. Hashing Abierto");
+        print("7. Hashing Cerrado");
         print("0. Salir");
-        return getOption(5, 0);
+        return getOption(7, 0);
     }
 
     private int printPassMenu() {
@@ -82,11 +97,11 @@ public class Menu {
                 if (deletedValue != null) {
                     print("\nEl número " + deletedValue + " fue eliminado de la estructura.");
                 } else {
-                    print("\nLa " + translateStructureName(structure) + " esta vacia o no cuenta con el numero seleccionado");
+                    print("\nLa " + translateStructureName(structure) + " está vacía o no cuenta con el número seleccionado");
                 }
                 break;
             case 3:
-                print("\nA que estructura quiere pasar el elemento?");
+                print("\n¿A qué estructura quiere pasar el elemento?");
                 option = printPassMenu();
                 if (option != 0) {
                     Structure newStructure = Structure.values()[option - 1];
@@ -109,7 +124,7 @@ public class Menu {
 
     private int treeStructuresMenu() {
         print("1. Agregar");
-        print("2. Mostrar");
+        print("2. Buscar");
         print("3. Ir al selector de estructuras");
         int option = getOption(3, 1);
         switch (option) {
@@ -128,11 +143,44 @@ public class Menu {
         return option;
     }
 
+    private int hashingMenu() {
+        InputStreamReader r=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(r);
+
+        print("1. Agregar elementos predeterminados por cédula");
+        print("2. Agregar elementos predeterminados por apellido");
+        print("3. Buscar");
+        print("4. Ir al selector de estructuras");
+        int option = getOption(4, 1);
+        switch (option) {
+            case 1:
+                manager.push("cedula", structure);
+                break;
+            case 2:
+                manager.push("apellido", structure);
+
+                break;
+            case 3:
+                print("Ingrese un valor");
+                var value = read();
+
+                print(manager.contains(structure, value));
+                break;
+            case 4:
+                break;
+            default:
+                print("Ingrese una opción válida");
+                break;
+        }
+
+        return option;
+    }
+
     private int readInt() {
         try {
             return Integer.parseInt(in.readLine());
         } catch (IOException e) {
-            print("Digite un numero para agregar");
+            print("Digite un número para agregar");
             return readInt();
         }
     }
@@ -141,7 +189,7 @@ public class Menu {
         try {
             return in.readLine();
         } catch (IOException e) {
-            print("Lo que ingreso no puede ser reconocido. Intente de nuevo");
+            print("Lo que ingreso no pude ser reconocido. Intente de nuevo");
             return readInt();
         }
     }
@@ -151,7 +199,7 @@ public class Menu {
         while (true) {
             option = readInt();
             if (option > max || option < min) {
-                print("Opcion invalida digite de nuevo");
+                print("Opción inválida digite de nuevo");
             } else {
                 return option;
             }
@@ -174,8 +222,12 @@ public class Menu {
                 return "árbol binario";
             case AVL:
                 return "árbol AVL";
+            case HASH_ABIERTO:
+                return "hashing abierto";
+            case HASH_CERRADO:
+                return "hashing cerrado";
             default:
-                return "Estructura invalida";
+                return "Estructura inválida";
         }
     }
 

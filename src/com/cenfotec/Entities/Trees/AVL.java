@@ -158,8 +158,8 @@ public class AVL {
     }
 
     private String inOrder(AVLNode v_node){
-        String content = "";
-        if(v_node != null){
+            String content = "";
+            if(v_node != null){
             content += inOrder(v_node.getLeft());
             content += "[" +v_node.getValue()+"],";
             content += inOrder(v_node.getRight());

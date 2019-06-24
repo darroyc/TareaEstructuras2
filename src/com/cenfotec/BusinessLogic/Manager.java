@@ -1,5 +1,7 @@
 package com.cenfotec.BusinessLogic;
 
+import com.cenfotec.Entities.Hashing.HashingAbierto;
+import com.cenfotec.Entities.Hashing.HashingCerrado;
 import com.cenfotec.Entities.LinearStructures.Base;
 import com.cenfotec.Entities.LinearStructures.OrderedList;
 import com.cenfotec.Entities.LinearStructures.Queue;
@@ -14,6 +16,8 @@ public class Manager {
     private OrderedList orderedList;
     private Binary binaryTree;
     private AVL avlTree;
+    private HashingAbierto hashingAbierto;
+    private HashingCerrado hashingCerrado;
 
     public Manager(){
         stack = new Stack();
@@ -21,6 +25,8 @@ public class Manager {
         orderedList = new OrderedList();
         binaryTree = new Binary();
         avlTree = new AVL();
+        hashingAbierto = new HashingAbierto();
+        hashingCerrado = new HashingCerrado();
     }
 
     public <T> void push(T value, Structure structure){
@@ -39,6 +45,12 @@ public class Manager {
                 break;
             case AVL:
                 avlTree.insert((Integer) value);
+                break;
+            case HASH_ABIERTO:
+                hashingAbierto.add((String) value);
+                break;
+            case HASH_CERRADO:
+                hashingCerrado.add((String) value);
                 break;
         }
     }
@@ -105,6 +117,18 @@ public class Manager {
         }
     }
 
+    public <T> String contains (Structure structure, T value){
+        String result;
+         switch (structure){
+             case HASH_ABIERTO:
+                 return hashingAbierto.contains((String) value);
+             case HASH_CERRADO:
+                 return hashingCerrado.contains((String) value);
+                 default:
+                     return "Estructura inválida";
+         }
+    }
+
     public String getStructureContent(Structure structure){
         String content;
         switch (structure) {
@@ -131,7 +155,7 @@ public class Manager {
                         avlTree.preOrder();
                 return content;
             default:
-                return "Estructura invalida";
+                return "Estructura inválida";
         }
     }
 
