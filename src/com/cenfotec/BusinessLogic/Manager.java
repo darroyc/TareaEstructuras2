@@ -64,16 +64,11 @@ public class Manager {
 
     public <T> Object searchInBPlusTree(T key){
         Object object = bPlusTree.search((Comparable) key);
-        return object==null ? object:"No se pudo encontrar el valor deseado, intente de nuevo.";
+        return object==null ? "No se pudo encontrar el valor deseado, intente de nuevo.":object;
     }
 
-    public <T> String deleteFromBPlusTree(T key){
-        try{
-            bPlusTree.delete((Comparable) key);
-            return "Eliminacion exitosa!";
-        }catch (NullPointerException e){
-            return "No se pudo encontrar el valor deseado, intente de nuevo.";
-        }
+    public <T> void deleteFromBPlusTree(T key){
+        bPlusTree.delete((Comparable) key);
     }
 
     public Object pop(Structure structure){

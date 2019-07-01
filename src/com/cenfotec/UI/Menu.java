@@ -162,12 +162,12 @@ public class Menu {
                 manager.insertIntoBPlusTree(key, value);
                 break;
             case 2:
-                print("\nDigite  el elemento  a buscar:");
+                print("\nDigite  la llave  a buscar:");
                 key = read();
                 print(manager.searchInBPlusTree(key).toString());
                 break;
             case 3:
-                print("\nDigite el elemento a eliminar:");
+                print("\nDigite la llave a eliminar:");
                 key = read();
                 print(manager.deleteFromBPlusTree(key));
                 break;
