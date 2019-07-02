@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java" description="break;" line="103" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java" description="break;" line="113" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a09c04b-d395-4bdb-894b-7063b9729bd7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cenfotec/Enums/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cenfotec/Enums/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+            <state relative-caret-position="113">
+              <caret line="72" column="43" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2284#2285#0" expanded="true" />
@@ -43,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
+            <state relative-caret-position="186">
+              <caret line="211" column="19" lean-forward="true" selection-start-line="211" selection-start-column="19" selection-end-line="211" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,17 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
+            <state relative-caret-position="-475">
+              <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1218#1219#0" expanded="true" />
                 <element signature="e#1251#1252#0" expanded="true" />
                 <element signature="e#1427#1428#0" expanded="true" />
                 <element signature="e#1462#1463#0" expanded="true" />
+                <element signature="e#2543#2544#0" expanded="true" />
+                <element signature="e#2580#2581#0" expanded="true" />
+                <element signature="e#2907#2908#0" expanded="true" />
+                <element signature="e#2944#2945#0" expanded="true" />
+                <element signature="e#3271#3272#0" expanded="true" />
+                <element signature="e#3308#3309#0" expanded="true" />
                 <element signature="e#2832#2833#0" expanded="true" />
                 <element signature="e#2871#2872#0" expanded="true" />
               </folding>
@@ -202,8 +205,8 @@
         <option value="$PROJECT_DIR$/src/com/cenfotec/Main.java" />
         <option value="$PROJECT_DIR$/src/com/cenfotec/Enums/Structure.java" />
         <option value="$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java" />
-        <option value="$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java" />
         <option value="$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java" />
+        <option value="$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java" />
       </list>
     </option>
   </component>
@@ -614,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/Nodes/RedBlackNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -631,42 +627,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="70" column="18" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1462#1463#0" expanded="true" />
-            <element signature="e#2832#2833#0" expanded="true" />
-            <element signature="e#2871#2872#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cenfotec/BusinessLogic/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+        <state relative-caret-position="113">
+          <caret line="72" column="43" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2284#2285#0" expanded="true" />
             <element signature="e#2343#2344#0" expanded="true" />
             <element signature="e#2307#2308#0" expanded="true" />
             <element signature="e#2357#2358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/UI/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="211" column="19" lean-forward="true" selection-start-line="211" selection-start-column="19" selection-end-line="211" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/Nodes/RedBlackNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cenfotec/Entities/Trees/RedBlack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-475">
+          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="e#2543#2544#0" expanded="true" />
+            <element signature="e#2580#2581#0" expanded="true" />
+            <element signature="e#2907#2908#0" expanded="true" />
+            <element signature="e#2944#2945#0" expanded="true" />
+            <element signature="e#3271#3272#0" expanded="true" />
+            <element signature="e#3308#3309#0" expanded="true" />
+            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
           </folding>
         </state>
       </provider>

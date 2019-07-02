@@ -36,7 +36,7 @@ public class Menu {
                                 option = openBTreeMenu();
                             }
                         }else{
-                            while (option != 3) {
+                            while (option != 5) {
                                 print("\n¿Qué desea hacer?");
                                 option = redBlackTreeMenu();
                             }
@@ -190,9 +190,11 @@ public class Menu {
         Object key;
         Object value;
         print("1. Agregar");
-        print("2. Imprimir");
-        print("3. Ir al selector de estructuras");
-        int option = getOption(3, 1);
+        print("2. Imprimir en preorden");
+        print("3. Imprimir en inorden");
+        print("4. Imprimir en postorden");
+        print("5. Ir al selector de estructuras");
+        int option = getOption(5, 1);
         switch (option) {
             case 1:
                 print("\nDigite la llave del elemento a agregar:");
@@ -202,9 +204,15 @@ public class Menu {
                 manager.insertIntoRedBlackTree(key, value);
                 break;
             case 2:
-                print(manager.printRedBlack());
+                print(manager.printPreOrderRedBlack());
                 break;
             case 3:
+                print(manager.printInOrderRedBlack());
+                break;
+            case 4:
+                print(manager.printPostOrderRedBlack());
+                break;
+            case 5:
                 break;
         }
 

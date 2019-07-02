@@ -68,6 +68,7 @@ public class RedBlack<Key extends Comparable<Key>, Value> {
      * and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
+
     private Value get(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         return get(root, key);
@@ -82,6 +83,45 @@ public class RedBlack<Key extends Comparable<Key>, Value> {
             else return (Value) x.val;
         }
         return null;
+    }
+
+    public String preOrder(){
+        return preOrder(root);
+    }
+    private String preOrder(RedBlackNode node) {
+        String print = "";
+        if (node != null) {
+            print = print + node.val + " ";
+            print = print + preOrder(node.left) + " ";
+            print = print + preOrder(node.right) + " ";
+        }
+        return print;
+    }
+
+    public String inOrder(){
+        return inOrder(root);
+    }
+    private String inOrder(RedBlackNode node) {
+        String print = "";
+        if (node != null) {
+            print = print + preOrder(node.left) + " ";
+            print = print + node.val + " ";
+            print = print + preOrder(node.right) + " ";
+        }
+        return print;
+    }
+    public String postOrder(){
+        return postOrder(root);
+    }
+    private String postOrder(RedBlackNode node) {
+        String print = "";
+        if (node != null) {
+
+            print = print + preOrder(node.left) + " ";
+            print = print + preOrder(node.right) + " ";
+            print = print + node.val + " ";
+        }
+        return print;
     }
 
     /**

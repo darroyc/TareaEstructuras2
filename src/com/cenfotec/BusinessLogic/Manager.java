@@ -70,9 +70,19 @@ public class Manager {
         redBlack.put((String) key, (Integer) value);
     }
 
-    public <T> String printRedBlack(){
+    public <T> String printPreOrderRedBlack(){
 
-        return redBlack.print(redBlack);
+        return redBlack.preOrder();
+    }
+
+    public <T> String printInOrderRedBlack(){
+
+        return redBlack.inOrder();
+    }
+
+    public <T> String printPostOrderRedBlack(){
+
+        return redBlack.postOrder();
     }
 
     public <T> Object searchInBPlusTree(T key){
