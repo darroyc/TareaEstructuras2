@@ -7,6 +7,7 @@ import com.cenfotec.Entities.LinearStructures.OrderedList;
 import com.cenfotec.Entities.LinearStructures.Queue;
 import com.cenfotec.Entities.LinearStructures.Stack;
 import com.cenfotec.Entities.Trees.AVL;
+import com.cenfotec.Entities.Trees.BPlusTree;
 import com.cenfotec.Entities.Trees.Binary;
 import com.cenfotec.Enums.Structure;
 
@@ -18,6 +19,7 @@ public class Manager {
     private AVL avlTree;
     private HashingAbierto hashingAbierto;
     private HashingCerrado hashingCerrado;
+    private BPlusTree bPlusTree;
 
     public Manager(){
         stack = new Stack();
@@ -27,6 +29,7 @@ public class Manager {
         avlTree = new AVL();
         hashingAbierto = new HashingAbierto();
         hashingCerrado = new HashingCerrado();
+        bPlusTree = new BPlusTree();
     }
 
     public <T> void push(T value, Structure structure){
@@ -53,6 +56,19 @@ public class Manager {
                 hashingCerrado.add((String) value);
                 break;
         }
+    }
+
+    public <T> void insertIntoBPlusTree(T key, T value){
+        bPlusTree.insert((Comparable) key, value);
+    }
+
+    public <T> Object searchInBPlusTree(T key){
+        Object object = bPlusTree.search((Comparable) key);
+        return object==null ? "No se pudo encontrar el valor deseado, intente de nuevo.":object;
+    }
+
+    public <T> void deleteFromBPlusTree(T key){
+        bPlusTree.delete((Comparable) key);
     }
 
     public Object pop(Structure structure){

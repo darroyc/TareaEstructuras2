@@ -7,5 +7,6 @@ public enum Structure {
     BINARY,
     AVL,
     HASH_ABIERTO,
-    HASH_CERRADO
+    HASH_CERRADO,
+    BPLUS
 }

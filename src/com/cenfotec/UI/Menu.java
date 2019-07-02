@@ -21,35 +21,36 @@ public class Menu {
         while (option != 0) {
             print("¿Con qué desea trabajar?");
             option = printMainMenu();
-            if(option!=0){
+            if (option != 0) {
                 structure = Structure.values()[option - 1];
-
-                if(option >=4){
-
-                    if(option >= 6){
-
-                        while (option!=4){
+                if (option >= 4) {
+                    if (option == 6 || option == 7) {
+                        while (option != 4) {
                             print("\n¿Qué desea hacer?");
                             option = hashingMenu();
                         }
-
-                    }else{
-                        while (option!=3){
+                    } else if (option == 8) {
+                        while (option != 4) {
+                            print("\n¿Qué desea hacer?");
+                            option = openBTreeMenu();
+                        }
+                    } else {
+                        while (option != 3) {
                             print("\n¿Qué desea hacer?");
                             option = treeStructuresMenu();
                         }
                     }
-
                 }
-                else {
-                    while (option!=5){
-                        print("\n¿Qué desea hacer?");
-                        option = linearStructuresMenu();
-                    }
+
+            } else {
+                while (option != 5) {
+                    print("\n¿Qué desea hacer?");
+                    option = linearStructuresMenu();
                 }
             }
         }
     }
+
 
     private int printMainMenu() {
         print("1. Lista");
@@ -59,8 +60,9 @@ public class Menu {
         print("5. Árbol AVL");
         print("6. Hashing Abierto");
         print("7. Hashing Cerrado");
+        print("8. Arbol B+");
         print("0. Salir");
-        return getOption(7, 0);
+        return getOption(8, 0);
     }
 
     private int printPassMenu() {
@@ -91,7 +93,7 @@ public class Menu {
                     print("\nDigite el elemento que desea eliminar");
                     var valueToDelete = read();
                     deletedValue = manager.deleteFromList(valueToDelete);
-                }else{
+                } else {
                     deletedValue = manager.pop(structure);
                 }
                 if (deletedValue != null) {
@@ -105,10 +107,10 @@ public class Menu {
                 option = printPassMenu();
                 if (option != 0) {
                     Structure newStructure = Structure.values()[option - 1];
-                    if(newStructure != structure){
+                    if (newStructure != structure) {
                         print("De " + translateStructureName(structure) + " a " + translateStructureName(newStructure));
                         structure = manager.convert(newStructure, structure);
-                    }else {
+                    } else {
                         print("Se seleccionó el mismo tipo de estructura.");
                     }
                 }
@@ -117,14 +119,14 @@ public class Menu {
                 print(manager.getStructureContent(structure));
                 break;
             case 5:
-                    break;
+                break;
         }
         return option;
     }
 
     private int treeStructuresMenu() {
         print("1. Agregar");
-        print("2. Buscar");
+        print("2. Imprimir Ordenes");
         print("3. Ir al selector de estructuras");
         int option = getOption(3, 1);
         switch (option) {
@@ -136,7 +138,40 @@ public class Menu {
             case 2:
                 print(manager.getStructureContent(structure));
                 break;
-            case 5:
+            case 3:
+                break;
+        }
+
+        return option;
+    }
+
+    private int openBTreeMenu() {
+        Object key;
+        Object value;
+        print("1. Agregar");
+        print("2. Buscar");
+        print("3. Eliminar");
+        print("4. Ir al selector de estructuras");
+        int option = getOption(4, 1);
+        switch (option) {
+            case 1:
+                print("\nDigite la llave del elemento a agregar:");
+                key = read();
+                print("\nDigite el elemento a agregar:");
+                value = read();
+                manager.insertIntoBPlusTree(key, value);
+                break;
+            case 2:
+                print("\nDigite  la llave  a buscar:");
+                key = read();
+                print(manager.searchInBPlusTree(key).toString());
+                break;
+            case 3:
+                print("\nDigite la llave a eliminar:");
+                key = read();
+                print(manager.deleteFromBPlusTree(key));
+                break;
+            case 4:
                 break;
         }
 
@@ -144,8 +179,8 @@ public class Menu {
     }
 
     private int hashingMenu() {
-        InputStreamReader r=new InputStreamReader(System.in);
-        BufferedReader br=new BufferedReader(r);
+        InputStreamReader r = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(r);
 
         print("1. Agregar elementos predeterminados por cédula");
         print("2. Agregar elementos predeterminados por apellido");
@@ -207,6 +242,9 @@ public class Menu {
     }
 
     private void print(String message) {
+        if(message == null){
+            message = "No se pudo encontrar el valor deseado, intente de nuevo.";
+        }
         System.out.println(message);
     }
 
@@ -226,6 +264,8 @@ public class Menu {
                 return "hashing abierto";
             case HASH_CERRADO:
                 return "hashing cerrado";
+            case BPLUS:
+                return "árbol B+";
             default:
                 return "Estructura inválida";
         }
