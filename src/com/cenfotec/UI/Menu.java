@@ -29,10 +29,17 @@ public class Menu {
                             print("\n¿Qué desea hacer?");
                             option = hashingMenu();
                         }
-                    } else if (option == 8) {
-                        while (option != 4) {
-                            print("\n¿Qué desea hacer?");
-                            option = openBTreeMenu();
+                    } else if (option == 8 || option == 9) {
+                        if(option == 8){
+                            while (option != 4) {
+                                print("\n¿Qué desea hacer?");
+                                option = openBTreeMenu();
+                            }
+                        }else{
+                            while (option != 3) {
+                                print("\n¿Qué desea hacer?");
+                                option = redBlackTreeMenu();
+                            }
                         }
                     } else {
                         while (option != 3) {
@@ -61,8 +68,9 @@ public class Menu {
         print("6. Hashing Abierto");
         print("7. Hashing Cerrado");
         print("8. Arbol B+");
+        print("9. Arbol Rojo-Negro");
         print("0. Salir");
-        return getOption(8, 0);
+        return getOption(9, 0);
     }
 
     private int printPassMenu() {
@@ -146,32 +154,57 @@ public class Menu {
     }
 
     private int openBTreeMenu() {
+            Object key;
+            Object value;
+            print("1. Agregar");
+            print("2. Buscar");
+            print("3. Eliminar");
+            print("4. Ir al selector de estructuras");
+            int option = getOption(4, 1);
+            switch (option) {
+                case 1:
+                    print("\nDigite la llave del elemento a agregar:");
+                    key = read();
+                    print("\nDigite el elemento a agregar:");
+                    value = read();
+                    manager.insertIntoBPlusTree(key, value);
+                    break;
+                case 2:
+                    print("\nDigite  la llave  a buscar:");
+                    key = read();
+                    print(manager.searchInBPlusTree(key).toString());
+                    break;
+                case 3:
+                    print("\nDigite la llave a eliminar:");
+                    key = read();
+                    manager.deleteFromBPlusTree(key);
+                    break;
+                case 4:
+                    break;
+            }
+
+        return option;
+    }
+
+    private int redBlackTreeMenu() {
         Object key;
         Object value;
         print("1. Agregar");
-        print("2. Buscar");
-        print("3. Eliminar");
-        print("4. Ir al selector de estructuras");
-        int option = getOption(4, 1);
+        print("2. Imprimir");
+        print("3. Ir al selector de estructuras");
+        int option = getOption(3, 1);
         switch (option) {
             case 1:
                 print("\nDigite la llave del elemento a agregar:");
                 key = read();
                 print("\nDigite el elemento a agregar:");
-                value = read();
-                manager.insertIntoBPlusTree(key, value);
+                value = readInt();
+                manager.insertIntoRedBlackTree(key, value);
                 break;
             case 2:
-                print("\nDigite  la llave  a buscar:");
-                key = read();
-                print(manager.searchInBPlusTree(key).toString());
+                print(manager.printRedBlack());
                 break;
             case 3:
-                print("\nDigite la llave a eliminar:");
-                key = read();
-                print(manager.deleteFromBPlusTree(key));
-                break;
-            case 4:
                 break;
         }
 
@@ -266,6 +299,8 @@ public class Menu {
                 return "hashing cerrado";
             case BPLUS:
                 return "árbol B+";
+            case REDBLACK:
+                return "árbol Rojo-Negro";
             default:
                 return "Estructura inválida";
         }

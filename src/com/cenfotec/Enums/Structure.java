@@ -8,5 +8,6 @@ public enum Structure {
     AVL,
     HASH_ABIERTO,
     HASH_CERRADO,
-    BPLUS
+    BPLUS,
+    REDBLACK
 }

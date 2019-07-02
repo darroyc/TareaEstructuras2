@@ -9,6 +9,7 @@ import com.cenfotec.Entities.LinearStructures.Stack;
 import com.cenfotec.Entities.Trees.AVL;
 import com.cenfotec.Entities.Trees.BPlusTree;
 import com.cenfotec.Entities.Trees.Binary;
+import com.cenfotec.Entities.Trees.RedBlack;
 import com.cenfotec.Enums.Structure;
 
 public class Manager {
@@ -20,6 +21,8 @@ public class Manager {
     private HashingAbierto hashingAbierto;
     private HashingCerrado hashingCerrado;
     private BPlusTree bPlusTree;
+    private RedBlack<String, Integer> redBlack;
+    private static int val = 0;
 
     public Manager(){
         stack = new Stack();
@@ -30,6 +33,7 @@ public class Manager {
         hashingAbierto = new HashingAbierto();
         hashingCerrado = new HashingCerrado();
         bPlusTree = new BPlusTree();
+        redBlack = new RedBlack<String, Integer>();
     }
 
     public <T> void push(T value, Structure structure){
@@ -60,6 +64,15 @@ public class Manager {
 
     public <T> void insertIntoBPlusTree(T key, T value){
         bPlusTree.insert((Comparable) key, value);
+    }
+
+    public <T> void insertIntoRedBlackTree(T key, T value){
+        redBlack.put((String) key, (Integer) value);
+    }
+
+    public <T> String printRedBlack(){
+
+        return redBlack.print(redBlack);
     }
 
     public <T> Object searchInBPlusTree(T key){

@@ -68,7 +68,7 @@ public class RedBlack<Key extends Comparable<Key>, Value> {
      * and {@code null} if the key is not in the symbol table
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public Value get(Key key) {
+    private Value get(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to get() is null");
         return get(root, key);
     }
@@ -285,6 +285,14 @@ public class RedBlack<Key extends Comparable<Key>, Value> {
         if      (cmp < 0) return rank(key, x.left);
         else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
         else              return size(x.left);
+    }
+
+    public String print(RedBlack st){
+        String print = "";
+        for (Object s : st.keys())
+            print = print + " " + st.get((Key)s);
+
+        return print;
     }
 
 }
